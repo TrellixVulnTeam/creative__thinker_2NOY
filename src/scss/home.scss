@@ -1,3 +1,92 @@
 //====================================================================================================
+.main-block {
+    padding: 338px 0 50px 0;
+    @include adaptiveValue("padding-top", 338, 120);
+    @include adaptiveValue("padding-bottom", 50, 30);
+    // .main-block__container
+    &__container {
+        display: flex;
+        @media (max-width: $mobile){
+              flex-direction: column;
+              row-gap: 20px;
+        }
+    }
+    // .main-block__body
+    &__body {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        @include adaptiveValue("gap", 40, 20);
+        @include adaptiveValue("padding-right", 80, 20);
+        @media (max-width: $mobile){
+            padding-right: 0;
+        }
+    }
+    // .main-block__name
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: math.div( 28, 20);
+        color: #4338CA;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &::before {
+            content: '';
+            width: 102px;
+            height: 1px;
+            background-color: #4338CA;
+            @media (max-width: $mobileSmall){
+                  display: none;
+            }
+        }
+    }
+    // .main-block__title
+    &__title {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 72, 34);
+    }
+    // .main-block__text
+    &__text {
+        max-width: 553px;
+        color: #6B7280;
+        line-height: math.div(28 ,18 );
+    }
+    // .main-block__buttons
+    &__buttons {
+        display: flex;
+        gap: 20px;
+        @media (max-width: $mobileSmall){
+            flex-direction: column;
+        }
+    }
+    // .main-block__button
+    &__button {
+        @media (max-width: $mobileSmall){
+            flex: 1 1 auto;
+            text-align: center;
+        }
+    }
+    // .main-block__info
+    &__info {
+        color: #6B7280;
+        font-size: 12px;
+        line-height: math.div(16 ,12 );
+        padding-top: 20px;
+        border-top: 1px solid #E5E7EB;
+    }
+    // .main-block__image
+    &__image {
+        flex: 0 0 math.div(478, 1180) * 100%;
+        img {
+            width: 100%;
+        }
+    }
+}
+.button {
+    // .button_bg
+
+}
 
 //====================================================================================================

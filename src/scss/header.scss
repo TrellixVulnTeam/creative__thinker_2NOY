@@ -1,9 +1,120 @@
 //====================================================================================================
+.header {
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+	top: 0;
+	left: 0;
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+		min-height: 236px;
+		@include adaptiveValue("column-gap", 80, 20);
+		@include adaptiveValue("min-height", 236, 100);
+	}
+	// .header__logo
+	&__logo {
+		position: relative;
+		z-index: 5;
+		flex: 0 0 62px;
+		height: 62px;
+		border-radius: 50%;
+		background-color: #EEEBFF;
+		color: #7B61FF;
+		transform: rotate(30deg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+		font-size: rem(24);
+		line-height: math.div(32 , 24);
+	}
+	// .header__menu
+	&__menu {
+		flex: 1 1 auto;
+	}
+	// .header__button
+	&__button {
+		position: relative;
+		z-index: 5;
+	}
+}
+.menu {
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile){
+			position: fixed;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background-color: #b0a2f4;
+			overflow: auto;
+			transition: left 0.3s ease 0s;
+			&::before {
+				content: '';
+				position: fixed;
+				top: -100%;
+				left: 0;
+				width: 100%;
+				min-height: 236px;
+				@include adaptiveValue("min-height", 236, 100);
+				background-color: #FEF2F2;
+				transition: top 0.3s ease 0s;
+			}
+		}
+		.menu-open & {
+			left: 0;
+			&::before {
+				top: 0;
+			}
+		}
+		
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		justify-content: flex-end;
+		padding: 5px 0;
+		@media (max-width: $mobile){
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			justify-content: center;
+			align-items: center;
+			padding: 250px 15px 30px;
+			@include adaptiveValue("padding-top", 250, 130);
+			overflow: auto;
+		}
+		@media (min-width: $mobile){
+			flex-wrap: wrap;
+			row-gap: 7px;
+			@include adaptiveValue("column-gap", 80, 20);
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		font-weight: 500;
+		line-height: math.div(28 , 18);
+		color: #6B7280;
+		&:hover {
+			text-decoration: underline;
+		}
+		@media (max-width: $mobile){
+			font-size: 50px;
+			color: inherit;
+		}
+	}
+}
 
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -11,6 +122,7 @@
 		position: relative;
 		width: rem(30);
 		height: rem(18);
+		flex: 0 0 30px;
 		cursor: pointer;
 		z-index: 5;
 		span,
@@ -51,4 +163,4 @@
 		}
 	}
 }
-*/
+
